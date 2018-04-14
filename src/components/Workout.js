@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Workout = ({workout}) =>
-  <div className="col s6 m3" key={workout.id} >
-    <div className="tile card purple lighten-2" >
-      <h4>{workout.title}</h4>
-      <p className='white-space-pre'>{workout.description}</p>
-    </div>
-  </div>
+class Workout extends Component {
+
+  handleClick = () => {
+    this.props.onClick(this.props.workout.id)
+  }
+
+  handleDelete = () => {
+    this.props.onDelete(this.props.workout.id)
+  }
+  
+  render () {
+    return(
+      <div className="col s6 m3">
+        <div className="tile card purple lighten-2" >
+          <span className="deleteButton" onClick={this.handleDelete}>
+            x
+          </span>
+      
+          <h4 onClick={this.handleClick}>{this.props.workout.title}</h4>
+          <p className='white-space-pre' onClick={this.handleClick}>{this.props.workout.description}</p>
+        </div>
+      </div>
+      )
+  }
+}
 
 export default Workout
