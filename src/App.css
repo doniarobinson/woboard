@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
+.tile {
+  min-height: 1px;
+}
 
+.white-space-pre {
+  white-space: pre-wrap;
+}
